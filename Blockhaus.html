@@ -8,8 +8,7 @@
 <script src="mobile-detect.js"></script>
 <style>
 :root {
-    --banner-height: 0px; /* valeur par défaut */
-    --nav-height: 60px;   /* hauteur approximative de la nav */
+    --nav-height: 60px; /* hauteur approximative du bandeau */
 }
 
 body {
@@ -17,18 +16,19 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* BOUTONS EN HAUT */
+/* BOUTONS DE NAVIGATION */
 .top-buttons {
     position: sticky;
-    top: calc(var(--banner-height) + var(--nav-height));
-    padding: 15px 0;
-    text-align: center;
-    z-index: 800;
+    top: 0;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    padding: 15px 0;
     background: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .top-buttons button {
@@ -101,12 +101,24 @@ body {
     height: 100%;
     border: none;
 }
+
+/* Ajustements responsive pour mobile */
+@media (max-width: 768px) {
+    .top-buttons {
+        padding: 10px 0;
+        gap: 5px;
+    }
+    .top-buttons button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
 </style>
 </head>
 <body>
 <aside class="sidebar"></aside>
 
-<!-- BOUTONS -->
+<!-- BOUTONS DE NAVIGATION -->
 <div class="top-buttons">
     <button class="active" onclick="showSection('blockhaus', this)">Les Blockhaus</button>
     <button onclick="showSection('cartes', this)">Les Cartes</button>
@@ -200,6 +212,8 @@ function searchBlockhaus() {
 </script>
 </body>
 </html>
+
+
 
 
 
