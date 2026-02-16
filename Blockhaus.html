@@ -7,39 +7,32 @@
 <link rel="stylesheet" href="style.css">
 <script src="mobile-detect.js"></script>
 <style>
-:root {
-    --nav-height: 60px; /* hauteur approximative du bandeau */
-}
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
-/* BOUTONS DE NAVIGATION */
+/* BOUTONS MOBILES */
 .top-buttons {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column; /* empilement vertical */
+    align-items: center;
     gap: 10px;
     padding: 15px 0;
-    background: white;
-    z-index: 1000;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .top-buttons button {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 12px 25px;
+    padding: 15px 30px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    width: 90%;
+    max-width: 400px;
 }
 
 .top-buttons button:hover {
@@ -53,7 +46,7 @@ body {
 
 /* SECTIONS */
 .section {
-    margin-top: 20px;
+    margin: 20px 0;
     display: none;
 }
 
@@ -100,22 +93,6 @@ body {
     height: 100%;
     border: none;
 }
-
-/* RESPONSIVE MOBILE */
-@media (max-width: 768px) {
-    .top-buttons {
-        position: static; /* plus sticky sur mobile */
-        flex-direction: column;
-        gap: 8px;
-        padding: 10px 0;
-    }
-    .top-buttons button {
-        font-size: 14px;
-        padding: 12px 15px;
-        width: 90%;
-        margin: 0 auto;
-    }
-}
 </style>
 </head>
 <body>
@@ -124,7 +101,7 @@ body {
 <!-- SCRIPT DE NAVIGATION -->
 <script src="navigation.js"></script>
 
-<!-- BOUTONS DE NAVIGATION -->
+<!-- BOUTONS MOBILES -->
 <div class="top-buttons">
     <button class="active" onclick="showSection('blockhaus', this)">Les Blockhaus</button>
     <button onclick="showSection('cartes', this)">Les Cartes</button>
@@ -216,6 +193,7 @@ function searchBlockhaus() {
 </script>
 </body>
 </html>
+
 
 
 
