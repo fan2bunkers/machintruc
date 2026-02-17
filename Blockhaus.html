@@ -136,6 +136,10 @@ body {
     <div class="search-bar">
         <input type="text" id="searchInput" onkeyup="searchBlockhaus()" placeholder="Rechercher un blockhaus...">
     </div>
+
+    <!-- Conteneur pour les résultats filtrés -->
+    <div id="searchResults" class="block-list" style="text-align:center; display:none;"></div>
+    
     <div class="block-list" id="blockhausList" style="text-align: center;">
         <strong>Blockhaus sur Lys Lez Lannoy :</strong><br>
         <a href="blockhaus/BEF705.html" target="_blank">Pillbox de Cohem Nord (BEF 705)</a><br>
@@ -270,16 +274,21 @@ function showSection(sectionId, button) {
 }
 
 function searchBlockhaus() {
-    let input = document.getElementById("searchInput");
-    let filter = input.value.toLowerCase();
+    let input = document.getElementById("searchInput").value.toLowerCase();
     let links = document.getElementById("blockhausList").getElementsByTagName("a");
-    for (let i = 0; i < links.length; i++) {
-        let txtValue = links[i].textContent || links[i].innerText;
-        links[i].style.display = txtValue.toLowerCase().includes(filter) ? "" : "none";
+    let resultsContainer = document.getElementById("searchResults");
+
+    resultsContainer.innerHTML = "";
+
+    if (input === "") {
+        document.getElementById("blockhausList").style.display = "block";
+        resultsContainer.style.display = "none";
+        return;
     }
 }
 </script>
 </body>
 </html>
+
 
 
