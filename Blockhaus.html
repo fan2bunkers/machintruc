@@ -282,10 +282,30 @@ function searchBlockhaus() {
         resultsContainer.style.display = "none";
         return;
     }
+
+    document.getElementById("blockhausList").style.display = "none";
+    resultsContainer.style.display = "block";
+
+    let found = false;
+    for (let link of links) {
+        if (link.textContent.toLowerCase().includes(input)) {
+            let clonedLink = link.cloneNode(true);
+            resultsContainer.appendChild(clonedLink);
+            resultsContainer.appendChild(document.createElement("br"));
+            found = true;
+        }
+    }
+
+    if (!found) {
+        resultsContainer.innerHTML = "<em>Aucun résultat trouvé.</em>";
+    }
+}
+
 }
 </script>
 </body>
 </html>
+
 
 
 
