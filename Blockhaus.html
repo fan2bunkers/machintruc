@@ -18,18 +18,21 @@ html, body {
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    z-index: 0;
+
+    /* Image de fond grisée et légèrement assombrie */
+    background: url("arriereplan.jpg") center / cover no-repeat;
 }
 
+/* Pseudo-élément pour griser le fond sans toucher le contenu */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: url("background.webp") center / cover no-repeat;
+    background: url("arriereplan.jpg") center / cover no-repeat;
     filter: grayscale(100%) brightness(70%);
-    z-index: -1;
+    z-index: -1; /* reste derrière tout le contenu */
 }
 
 
@@ -318,6 +321,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
