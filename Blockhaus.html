@@ -16,49 +16,65 @@ html, body {
     height: 100%;
 }
 
+/* ===========================
+   BODY ET FOND
+   =========================== */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
+    color: #fff; /* texte blanc par défaut pour lisibilité */
 }
 
-/* Fond grisé uniquement */
+/* Image de fond grisée uniquement */
 body::before {
     content: "";
     position: fixed;
-    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    inset: 0;
     background: url("background.webp") center / cover no-repeat;
     filter: grayscale(100%) brightness(85%);
-    z-index: -1; /* derrière le contenu */
+    z-index: -1; /* derrière tout le contenu */
 }
-
-
 
 /* ===========================
-   PAGE (contenu)
+   LIENS DANS LES LISTES
    =========================== */
-.page {
-    position: relative;
-    min-height: 100vh;
-    padding-bottom: 50px;
-    background-color: rgba(255, 255, 255, 0.85);
-    z-index: 0;
+.block-list a {
+    display: block;
+    margin: 5px 0;
+    color: #fff; /* blanc pour contraste maximal */
+    text-decoration: none;
+    font-family: 'Merriweather', serif;
+    transition: color 0.2s, text-shadow 0.2s;
+
+    /* Ombre légère sur le texte pour lisibilité */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
-/* S'assurer que le contenu reste au-dessus du fond */
-.page > * {
+.block-list a:hover {
+    color: #ffd700; /* couleur jaune clair au survol */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* ombre plus marquée au survol */
+    text-decoration: underline;
+}
+
+/* ===========================
+   AUTRES ELEMENTS TEXTUELS
+   =========================== */
+.page, header, .container {
+    background-color: rgba(255,255,255,0.0); /* transparent pour éviter barres */
     position: relative;
     z-index: 1;
 }
 
 /* ===========================
-   BOUTONS DE NAVIGATION
+   BOUTONS
    =========================== */
 .top-buttons {
     text-align: center;
     margin: 15px 0;
+    position: relative;
+    z-index: 2;
     background-color: transparent; /* plus de barre blanche */
-    z-index: 1; /* au-dessus du fond grisé */
 }
 
 .top-buttons button {
@@ -69,13 +85,12 @@ body::before {
     font-weight: bold;
     border-radius: 6px;
     background-color: #007bff;
-    color: white;
+    color: #fff;
     border: none;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
-
     position: relative;
-    z-index: 1; /* reste au-dessus de tout */
+    z-index: 2;
 }
 
 .top-buttons button:hover {
@@ -91,11 +106,6 @@ body::before {
    RESPONSIVE MOBILE
    =========================== */
 @media (max-width: 768px) {
-    .top-buttons {
-        margin: 10px 0;
-        padding: 10px 0;
-    }
-
     .top-buttons button {
         padding: 7px 12px;
         font-size: 13px;
@@ -108,6 +118,7 @@ body::before {
         font-size: 12px;
     }
 }
+
 
 
 
@@ -414,6 +425,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
