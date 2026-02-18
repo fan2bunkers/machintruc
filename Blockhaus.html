@@ -171,18 +171,26 @@ body::before {
     border: 1px solid #ccc;
 }
 
-/* Listes de liens */
+/* Liens principaux */
 .block-list a {
     display: block;
     margin: 5px 0;
-    color: #007bff;
+    color: #fff; /* blanc pour contraste avec le fond grisé */
     text-decoration: none;
     font-family: 'Merriweather', serif;
+    background-color: rgba(0,0,0,0.4); /* léger fond sombre pour lisibilité */
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
 }
 
+/* Effet au survol */
 .block-list a:hover {
+    background-color: rgba(255,255,255,0.3); /* fond clair au survol */
+    color: #000; /* texte foncé pour contraste sur fond clair */
     text-decoration: underline;
 }
+
 
 /* Carte Google Maps responsive */
 .map-container {
@@ -405,6 +413,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
