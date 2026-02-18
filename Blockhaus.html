@@ -12,125 +12,17 @@
 <link rel="stylesheet" href="style.css">
 <script src="mobile-detect.js"></script>
 <style>
-html, body {
-    height: 100%;
-}
-
-/* ===========================
-   BODY ET FOND
-   =========================== */
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    color: #fff; /* texte blanc par défaut */
+    font-family: Arial, sans-serif;
 }
 
-/* Image de fond grisée uniquement */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: url("background.webp") center / cover no-repeat;
-    filter: grayscale(100%) brightness(85%);
-    z-index: -1; /* derrière tout le contenu */
-}
-
-/* ===========================
-   LIENS DANS LES LISTES
-   =========================== */
-.block-list a {
-    display: block;
-    margin: 5px 0;
-    color: #fff; /* texte blanc pour contraste */
-    text-decoration: none;
-    font-family: 'Merriweather', serif;
-
-    /* Plus de fond pour éviter les barres */
-    background-color: transparent;
-
-    /* Ombre légère pour lisibilité sur fond grisé */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-
-    transition: color 0.2s, text-shadow 0.2s;
-}
-
-.block-list a:hover {
-    color: #ffd700; /* jaune clair au survol */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-    text-decoration: underline;
-}
-
-/* ===========================
-   BOUTONS TOP
-   =========================== */
+/* BOUTONS MOBILES HORIZONTAUX */
 .top-buttons {
     text-align: center;
     margin: 15px 0;
-    background-color: transparent; /* plus de barre blanche */
-    position: relative;
-    z-index: 2;
 }
 
-.top-buttons button {
-    display: inline-block;
-    margin: 5px 3px;
-    padding: 8px 14px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 6px;
-    background-color: #007bff; /* boutons colorés visibles */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-    position: relative;
-    z-index: 2;
-}
-
-.top-buttons button:hover {
-    background-color: #0056b3;
-    transform: translateY(-1px);
-}
-
-.top-buttons button.active {
-    background-color: #004a99;
-}
-
-/* ===========================
-   RESPONSIVE MOBILE
-   =========================== */
-@media (max-width: 768px) {
-    .top-buttons button {
-        padding: 7px 12px;
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 480px) {
-    .top-buttons button {
-        padding: 6px 10px;
-        font-size: 12px;
-    }
-}
-
-
-
-
-
-
-
-
-/* Déplacer les boutons au-dessus du fond grisé */
-.top-buttons {
-    text-align: center;
-    margin: 15px 0;
-    position: relative; /* nécessaire pour z-index */
-    z-index: 2;         /* au-dessus du fond grisé et de l'overlay */
-    background-color: transparent; /* pas de barre blanche */
-}
-
-/* Les boutons eux-mêmes */
 .top-buttons button {
     display: inline-block;
     margin: 5px 3px;
@@ -143,8 +35,6 @@ body::before {
     border: none;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
-    position: relative; 
-    z-index: 2; /* assure qu'ils sont au-dessus */
 }
 
 .top-buttons button:hover {
@@ -155,8 +45,6 @@ body::before {
 .top-buttons button.active {
     background-color: #004a99;
 }
-
-
 
 /* SECTIONS */
 .section {
@@ -178,27 +66,18 @@ body::before {
     border: 1px solid #ccc;
 }
 
+/* Listes de liens */
 .block-list a {
     display: block;
     margin: 5px 0;
-    color: #fff; /* texte blanc */
+    color: #007bff;
     text-decoration: none;
     font-family: 'Merriweather', serif;
-
-    /* fond harmonisé, pas trop noir */
-    background-color: rgba(0,0,0,0.25);
-    padding: 4px 8px;
-    border-radius: 4px;
-
-    transition: background 0.2s, color 0.2s;
 }
 
 .block-list a:hover {
-    background-color: rgba(255,255,255,0.3); /* léger survol clair */
-    color: #000; /* texte foncé sur fond clair */
     text-decoration: underline;
 }
-
 
 /* Carte Google Maps responsive */
 .map-container {
@@ -421,6 +300,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
