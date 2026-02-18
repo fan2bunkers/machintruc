@@ -20,50 +20,19 @@ html, body {
    BODY
    =========================== */
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-}
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("background.webp");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
-/* IMAGE DE FOND GRISÉE */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: url("background.webp") center / cover no-repeat;
-    filter: grayscale(50%) brightness(50%); /* grisé et légèrement éclairci */
-    z-index: -2; /* derrière tout */
-}
-
-/* OVERLAY LÉGER POUR CONTRASTE */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.15); /* léger voile sombre */
-    z-index: -1; /* entre le fond et le contenu */
-}
-
-/* ===========================
-   PAGE (contenu)
-   =========================== */
-.page {
-    position: relative;
-    min-height: 100vh;
-    padding-bottom: 50px;
-
-    /* Fond semi-transparent pour rendre le texte lisible */
-    background-color: rgba(255, 255, 255, 0.85);
-
-    z-index: 0;
-}
-
-/* Assurer que le contenu reste au-dessus de l'overlay */
-.page > * {
-    position: relative;
-    z-index: 1;
-}
-
+        .page {
+            background-color: rgba(255, 255, 255, 0.88);
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
 
 
 
@@ -385,6 +354,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
