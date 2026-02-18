@@ -17,14 +17,57 @@ html, body {
 }
 
 /* ===========================
+   BODY
+   =========================== */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+/* IMAGE DE FOND GRISÉE */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("arriereplan.jpg") center / cover no-repeat;
+    filter: grayscale(100%) brightness(90%);
+    z-index: -2; /* derrière tout */
+}
+
+/* OVERLAY LÉGER POUR CONTRASTE */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: -1; /* entre le fond et le contenu */
+}
+
+/* ===========================
+   PAGE (contenu)
+   =========================== */
+.page {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 50px;
+    background-color: rgba(255, 255, 255, 0.85);
+    z-index: 0;
+}
+
+/* S'assurer que le contenu reste au-dessus du fond */
+.page > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===========================
    BOUTONS DE NAVIGATION
    =========================== */
 .top-buttons {
     text-align: center;
     margin: 15px 0;
-
-    /* Fond transparent pour enlever la barre blanche */
-    background-color: transparent;
+    background-color: transparent; /* plus de barre blanche */
     z-index: 1; /* au-dessus du fond grisé */
 }
 
@@ -41,9 +84,8 @@ html, body {
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
 
-    /* S’assurer qu’ils restent au-dessus du fond */
     position: relative;
-    z-index: 1;
+    z-index: 1; /* reste au-dessus de tout */
 }
 
 .top-buttons button:hover {
@@ -373,6 +415,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
