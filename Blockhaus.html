@@ -31,7 +31,7 @@ body::before {
     position: fixed;
     inset: 0;
     background: url("background.webp") center / cover no-repeat;
-    filter: grayscale(100%) brightness(90%); /* grisé et légèrement éclairci */
+    filter: grayscale(50%) brightness(50%); /* grisé et légèrement éclairci */
     z-index: -2; /* derrière tout */
 }
 
@@ -69,10 +69,16 @@ body::after {
 
 
 
-/* BOUTONS MOBILES HORIZONTAUX */
+/* ===========================
+   BOUTONS DE NAVIGATION
+   =========================== */
 .top-buttons {
     text-align: center;
     margin: 15px 0;
+
+    /* Fond transparent pour enlever la barre blanche */
+    background-color: transparent;
+    z-index: 1; /* au-dessus du fond grisé */
 }
 
 .top-buttons button {
@@ -87,6 +93,10 @@ body::after {
     border: none;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
+
+    /* S’assurer qu’ils restent au-dessus du fond */
+    position: relative;
+    z-index: 1;
 }
 
 .top-buttons button:hover {
@@ -97,6 +107,29 @@ body::after {
 .top-buttons button.active {
     background-color: #004a99;
 }
+
+/* ===========================
+   RESPONSIVE MOBILE
+   =========================== */
+@media (max-width: 768px) {
+    .top-buttons {
+        margin: 10px 0;
+        padding: 10px 0;
+    }
+
+    .top-buttons button {
+        padding: 7px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-buttons button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
 
 /* SECTIONS */
 .section {
@@ -352,6 +385,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
