@@ -12,11 +12,15 @@
 <link rel="stylesheet" href="style.css">
 <script src="mobile-detect.js"></script>
 <style>
+html, body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     position: relative;
-    min-height: 100vh;
+    z-index: 0;
 }
 
 body::before {
@@ -24,8 +28,10 @@ body::before {
     position: fixed;
     inset: 0;
     background: url("background.webp") center / cover no-repeat;
+    filter: grayscale(100%) brightness(70%);
     z-index: -1;
 }
+
 
 
 
@@ -312,6 +318,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
