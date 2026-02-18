@@ -23,13 +23,12 @@ body {
 }
 
 
-/* BOUTONS MOBILES HORIZONTAUX */
-/* SUPPRIMER LA BARRE BLANCHE DERRIERE LES BOUTONS */
-.top-buttons {
-    background-color: transparent !important; /* fond totalement transparent */
-    position: relative;
-    z-index: 2; /* au-dessus de l'image de fond */
-    padding: 0; /* enlever les marges/blocs blancs éventuels */
+/* CONTENEUR ET BOUTONS TOP */
+.top-buttons, .top-buttons * {
+    background: transparent !important; /* fond transparent pour tout le conteneur et ses enfants */
+    box-shadow: none !important;       /* enlever ombres éventuelles qui font un effet de bande */
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 /* BOUTONS STANDARDS */
@@ -69,6 +68,7 @@ body {
         font-size: 12px;
     }
 }
+
 
 
 /* SECTIONS */
@@ -331,6 +331,7 @@ function searchBlockhaus() {
 
 </body>
 </html>
+
 
 
 
